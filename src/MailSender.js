@@ -18,7 +18,13 @@ class MailSender {
       from: "OpenMusic <no-reply@openmusic.com>",
       to: targetEmail,
       subject: "Ekspor Playlist",
-      text: `Hasil ekspor playlist:\n\n${JSON.stringify(content, null, 2)}`,
+      text: "Berikut lampiran hasil ekspor playlist Anda.",
+      attachments: [
+        {
+          filename: "playlist.json",
+          content: JSON.stringify(content, null, 2),
+        },
+      ],
     };
 
     return this._transporter.sendMail(message);

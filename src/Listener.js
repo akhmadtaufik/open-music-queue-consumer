@@ -15,7 +15,7 @@ class Listener {
       );
 
       const result = await this._mailSender.sendEmail(targetEmail, {
-        playlist: { id: playlistId, songs },
+        playlist: { id: playlistId, songs: songs },
       });
 
       console.log("Email terkirim ke:", targetEmail);
