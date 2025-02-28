@@ -1,3 +1,4 @@
+require("dotenv").config();
 const amqp = require("amqplib");
 const process = require("process");
 const PlaylistsService = require("./PlaylistsService");
