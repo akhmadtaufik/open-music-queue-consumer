@@ -10,12 +10,16 @@ class Listener {
         message.content.toString()
       );
 
-      const songs = await this._playlistsService.getSongsFromPlaylist(
+      const { name, songs } = await this._playlistsService.getSongsFromPlaylist(
         playlistId
       );
 
       const result = await this._mailSender.sendEmail(targetEmail, {
-        playlist: { id: playlistId, songs: songs },
+        playlist: {
+          id: playlistId,
+          name: name,
+          songs: songs,
+        },
       });
 
       console.log("Email terkirim ke:", targetEmail);
